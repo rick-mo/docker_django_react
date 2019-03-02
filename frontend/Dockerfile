@@ -1,11 +1,12 @@
 FROM node
 
 WORKDIR /app/frontend
+COPY package.json /app/frontend 
+COPY package-lock.json /app/frontend
+COPY tsconfig.json /app/frontend
 
-RUN npm install npm \
-    && npm install --save create-react-app \
-    && npm install --save axios \
-    && create-react-app front
+RUN npm install -g npm \
+    && npm install
 
 EXPOSE 3000
 CMD ["npm", "start"]

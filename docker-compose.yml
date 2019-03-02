@@ -19,9 +19,8 @@ services:
     command: ["npm", "start"]
     volumes:
       - ./frontend:/app/frontend
-      - node-modules:/app/frontend/node_modules
+      - node_modules:/app/frontend/node_modules
     ports:
       - "3000:3000"
-
 volumes:
-  node-modules:
+  node_modules:
