@@ -1,4 +1,7 @@
 
+# reference
+https://github.com/18F/docker-compose-django-react
+
 # command
 docker-compose up
 docker ps
