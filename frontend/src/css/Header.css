@@ -1,0 +1,36 @@
+
+header {
+  background-color: black;
+  opacity: 0.5;
+  height: 40px;
+  color: aliceblue;
+}
+
+.nav {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 40px;
+}
+
+.header-ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-ul li {
+  text-decoration: none;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 5px 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.link:hover {
+  color: aqua;
+}
