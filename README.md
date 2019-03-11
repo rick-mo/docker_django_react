@@ -4,8 +4,11 @@ https://github.com/18F/docker-compose-django-react
 
 # command
 docker-compose build
+
 docker-compose up
+
 docker ps
+
 docker exec -it container-id-web django-admin startproject project-name
 
 ./project-name/project-name/settings.py DATABASES edit
