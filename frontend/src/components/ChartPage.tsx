@@ -1,5 +1,6 @@
 import * as React from 'react';
 import axios from 'axios';
+import ChartForm from './ChartForm';
 import '../css/App.css';
 
 interface IChartState {
@@ -42,13 +43,18 @@ class ChartPage extends React.Component<IChartsState> {
   public render() {
     return (
       <div>
-        {this.state.charts!.map(item => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <h3>{item.row_title}</h3>
-            <h3>{item.column_title}</h3>
-          </div>
-        ))}
+        <div>
+          <ChartForm />
+        </div>
+        <div>
+          {this.state.charts!.map(item => (
+            <div key={item.id}>
+              <h1>{item.title}</h1>
+              <h3>{item.row_title}</h3>
+              <h3>{item.column_title}</h3>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

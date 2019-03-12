@@ -1,7 +1,6 @@
-from django.urls import path
+from rest_framework import routers
 from .views import ListChart, UploadFileView
 
-urlpatterns = [
-  path('', ListChart.as_view()),
-  path('upload/', UploadFileView.as_view())
-]
+router = routers.DefaultRouter()
+router.register('chart', ListChart)
+router.register('upload', UploadFileView)
