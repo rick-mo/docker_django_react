@@ -31,7 +31,7 @@ class ChartPage extends React.Component<IChartsState> {
   }
 
   private getChart() {
-    axios.get('http://localhost:8000/api/')
+    axios.get('http://localhost:8000/api/v1/chart')
       .then(res => {
         this.setState({ charts: res.data });
       })
@@ -43,9 +43,7 @@ class ChartPage extends React.Component<IChartsState> {
   public render() {
     return (
       <div>
-        <div>
-          <ChartForm />
-        </div>
+        <ChartForm />
         <div>
           {this.state.charts!.map(item => (
             <div key={item.id}>

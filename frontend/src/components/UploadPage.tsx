@@ -2,12 +2,12 @@ import * as React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 
-interface UploadState {
+interface IUploadState {
   uploading: boolean,
   files: string[]
 }
 
-class UploadPage extends React.Component<UploadState> {
+class UploadPage extends React.Component<IUploadState> {
 
   state = {
     uploading: false,
