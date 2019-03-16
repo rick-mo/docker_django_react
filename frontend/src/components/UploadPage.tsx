@@ -14,10 +14,6 @@ class UploadPage extends React.Component<IUploadState> {
     files: ''
   }
 
-  constructor(props: any) {
-    super(props);
-  }
-
 
   handleChangeFile = (e: any) => {
     this.state.files = e.target.files.item(0);

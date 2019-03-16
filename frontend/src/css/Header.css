@@ -1,36 +1,20 @@
 
-header {
-  background-color: black;
-  opacity: 0.5;
-  height: 40px;
-  color: aliceblue;
-}
-
-.nav {
-  width: 85%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  height: 40px;
-}
-
-.header-ul {
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-ul li {
-  text-decoration: none;
-  margin: 0 auto;
-  list-style-type: none;
-  padding: 5px 15px;
+.grow {
+  flex-grow: 1
 }
 
 .link {
   text-decoration: none;
-  color: aliceblue;
+  color: black;
+  margin: 0 10px;
 }
 
 .link:hover {
-  color: aqua;
+  color: gray;
+}
+
+.right-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }

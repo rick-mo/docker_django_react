@@ -1,26 +1,30 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, IconButton, Tabs, Tab } from '@material-ui/core/';
+import MenuIcon from '@material-ui/icons/Menu';
 import '../css/Header.css';
 
 const Header : React.FC = () => {
   return (
     <div>
-      <header>
-        <nav className="nav">
-          <div>
-            <Link className="link" to="/">
-              <h1>TOP</h1>
-            </Link>
+      <AppBar color="default" position="static">
+        <Toolbar>
+          <IconButton>
+            <MenuIcon />
+          </IconButton>
+          <div className="right-nav">
+            <Typography color="inherit" variant="h6">
+              <Link className="link" to="/">Top</Link>
+            </Typography>
+            <Typography color="inherit" variant="h6">
+              <Link className="link" to="/chart">Chart</Link>
+            </Typography>
+            <Typography color="inherit" variant="h6">
+              <Link className="link" to="/upload">Upload</Link>
+            </Typography>
           </div>
-          <div>
-            <ul className="header-ul">
-              <li><Link className="link" to="/">Top</Link></li>
-              <li><Link className="link" to="/chart">Chart</Link></li>
-              <li><Link className="link" to="/upload">Upload</Link></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+        </Toolbar>
+      </AppBar>
     </div>
   )
 }
