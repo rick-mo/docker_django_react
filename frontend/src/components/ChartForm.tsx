@@ -1,12 +1,14 @@
 import * as React from 'react';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
+import { Button, TextField } from '@material-ui/core/';
 
 const ChartForm: React.FC = () => {
+  // TODO stateをまとめる
   const [ titleState, setTitleState ] = React.useState<string>('')
   const [ rowTitleState, setRowTitleState ] = React.useState<string>('')
   const [ columnTitleState, setColumnTitleState ] = React.useState<string>('')
 
+  // TODO バリデーション
   const handlePost = () => {
     console.log(titleState, rowTitleState, columnTitleState)
     axios.post('http://localhost:8000/api/v1/chart/', {
@@ -22,16 +24,19 @@ const ChartForm: React.FC = () => {
 
   return (
     <div>
-      <p>title:
-        <input type="text" onChange={(e) => setTitleState(e.target.value)} />
-      </p>
-      <p>row_title:
-        <input type="text" onChange={(e) => setRowTitleState(e.target.value)} />
-      </p>
-      <p>column_title:
-        <input type="text" onChange={(e) => setColumnTitleState(e.target.value)} />
-      </p>
-      <Button onClick={() => handlePost()}>post</Button>
+      <TextField 
+        label="Title" 
+        onChange={(e) => setTitleState(e.target.value)} 
+      />
+      <TextField 
+        label="Row_Title" 
+        onChange={(e) => setRowTitleState(e.target.value)} 
+      />
+      <TextField 
+        label="Column_Title" 
+        onChange={(e) => setColumnTitleState(e.target.value)}
+      />
+      <Button onClick={() => handlePost()}>POST</Button>
     </div>
   )
 }

@@ -45,6 +45,7 @@ class ChartPage extends React.Component<IChartsState> {
       <div>
         <ChartForm />
         <div>
+          {/* ! : Non-null assertion operator */}
           {this.state.charts!.map(item => (
             <div key={item.id}>
               <h1>{item.title}</h1>
@@ -52,11 +53,6 @@ class ChartPage extends React.Component<IChartsState> {
               <h3>{item.column_title}</h3>
             </div>
           ))}
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
       </div>
     );

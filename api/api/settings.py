@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'myproject.apps.MyprojectConfig',
+    'myproject',
+    # 'auth',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -44,12 +45,17 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
   'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.permissions.AllowAny',
-    # 'rest_framework.permissions.IsAuthenticated',
+    'rest_framework.permissions.IsAuthenticated',
   ],
-  # 'DEFAULT_AUTHENTICATION_CLASSES': [
-  #   'rest_framework_jwt.authentication.JSonWebTokenAuthentication',
-  # ]
+  'DEFAULT_AUTHENTICATION_CLASSES': [
+    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+  ],
+  'NON_FIELD_ERRORS_KEY': 'detail',
+  'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+}
+
+JWT_AUTH = {
+  'JWT_VARIFY_EXPIRATION': False,
 }
 
 MIDDLEWARE = [
