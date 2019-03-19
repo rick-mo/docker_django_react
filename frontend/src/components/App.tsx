@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../css/App.css';
-import ChartPage from './ChartPage';
+import ChartPage from './chart/ChartPage';
 import UploadPage from './UploadPage';
 import NotExistPage from './NotExistPage';
 import TopPage from './TopPage';

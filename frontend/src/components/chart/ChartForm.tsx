@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Button, TextField } from '@material-ui/core/';
 
 const ChartForm: React.FC = () => {
-  // TODO stateをまとめる
   const [ titleState, setTitleState ] = React.useState<string>('')
   const [ rowTitleState, setRowTitleState ] = React.useState<string>('')
   const [ columnTitleState, setColumnTitleState ] = React.useState<string>('')

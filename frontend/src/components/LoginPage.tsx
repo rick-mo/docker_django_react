@@ -3,7 +3,6 @@ import axios from 'axios';
 import { TextField, Button } from '@material-ui/core';
 
 const LoginPage: React.FC = () => {
-  // TODO stateをまとめる
   const [ usernameState, setUsernameState ] = React.useState<string>('')
   const [ passwordState, setPasswordState ] = React.useState<string>('')
 
