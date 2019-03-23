@@ -1,4 +1,10 @@
 
+Backend : Django_rest_framework
+Frontend : React, TypeScript
+Database : PostgreSQL
+VirtualMachine : Docker
+Auth : JsonWebToken
+
 # reference
 https://github.com/18F/docker-compose-django-react
 

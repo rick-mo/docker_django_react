@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from myproject.urls import router as my_router
-from rest_framework_jwt.views import obtain_jwt_token
+from myAuth.urls import router as user_router
+from myAuth.views import UserAuthView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(my_router.urls)),
-    path('login/', obtain_jwt_token),
+    path('login/', UserAuthView.as_view()),
+    path('userList/', include(user_router.urls)),
 ]
