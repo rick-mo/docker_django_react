@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'myproject',
-    # 'auth',
+    'myAuth',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -57,6 +57,8 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
   'JWT_VARIFY_EXPIRATION': False,
 }
+
+AUTH_USER_MODEL = 'myAuth.MyCustomUser'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

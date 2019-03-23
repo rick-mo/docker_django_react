@@ -1,16 +1,12 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core/';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography } from '@material-ui/core/';
 import '../css/Header.css';
 
 const Header : React.FC = () => {
   return (
     <AppBar color="default" position="static">
       <Toolbar>
-        {/* <IconButton>
-          <MenuIcon />
-        </IconButton> */}
         <Typography color="inherit" variant="h6">
             <Link className="link" to="/">Top</Link>
           </Typography>

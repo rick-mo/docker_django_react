@@ -44,14 +44,14 @@ const ChartPage: React.FC = () => {
   return (
     <div>
       <ChartForm />
-      <ChartList charts={chartState.charts}/>
-        {/* {chartState.charts!.map(item => (
+      {/* <ChartList charts={chartState.charts}/> */}
+        {chartState.charts!.map(item => (
           <div key={item.id}>
             <h1>{item.title}</h1>
             <h3>{item.row_title}</h3>
             <h3>{item.column_title}</h3>
           </div>
-        ))} */}
+        ))}
     </div>
   )
 }
