@@ -1,6 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import '../css/App.css';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import createMuiTheme, { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { blue, grey } from '@material-ui/core/colors';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import ChartPage from './chart/ChartPage';
 import UploadPage from './UploadPage';
 import NotExistPage from './NotExistPage';
@@ -8,14 +12,47 @@ import TopPage from './TopPage';
 import Header from './Header';
 import LoginPage from './LoginPage';
 
-class App extends React.Component<{}> {
+const theme: Theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: blue[100],
+      main: blue[50],
+      dark: blue[100]
+    },
+    secondary: {
+      light: grey[500],
+      main: grey[900],
+      dark: grey[900]
+    }
+  }, 
+  typography: {
+    useNextVariants: true,
+  },
+});
 
-  public render() {
-    return (
+const styles = (theme: Theme) => ({
+  content: {
+    displey: 'flex',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+});
+
+const App: React.FC<WithStyles<typeof styles>> = (props) => {
+  const { classes } = props;
+  
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
         <div>
           <Header />
-          <div className="content">
+          <div className={classes.content}>
             <Switch>
               <Route path="/" exact component={TopPage} />
               <Route path="/chart" exact component={ChartPage} />
@@ -26,8 +63,8 @@ class App extends React.Component<{}> {
           </div>
         </div>
       </Router>
-    );
-  }
-}
+    </MuiThemeProvider>
+  );
+};
 
-export default App;
+export default withStyles(styles)(App);

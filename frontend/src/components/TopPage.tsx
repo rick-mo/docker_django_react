@@ -1,11 +1,21 @@
-import * as React from 'react';
+import React from 'react';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 
-const TopPage : React.FC = () => {
+const styles = (theme: Theme) => ({
+  font: {
+    color: theme.palette.primary.dark
+  }
+});
+
+const TopPage: React.FC<WithStyles<typeof styles>> = (props) => {
+  const { classes } = props;
+
   return (
     <div>
-      <h1>Welcome Home!</h1>
+      <h1 className={classes.font}>Welcome Home!</h1>
     </div>
-  )
-}
+  );
+};
 
-export default TopPage;
+export default withStyles(styles)(TopPage);

@@ -1,29 +1,49 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core/';
-import '../css/Header.css';
+import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-const Header : React.FC = () => {
+const styles = (theme: Theme) => ({
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.secondary.main,
+    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing.unit, 
+    '&:hover': {
+      color: theme.palette.secondary.light
+    }
+  }, 
+  right_nav: {
+    flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'flex-end'
+  }
+});
+
+const Header: React.FC<WithStyles<typeof styles>> = (props) => {
+  const { classes } = props;
+
   return (
-    <AppBar color="default" position="static">
+    <AppBar position="static">
       <Toolbar>
-        <Typography color="inherit" variant="h6">
-            <Link className="link" to="/">Top</Link>
+        <Typography variant="h6">
+            <Link className={classes.link} to="/">Top</Link>
           </Typography>
-        <div className="right-nav">
-          <Typography color="inherit" variant="h6">
-            <Link className="link" to="/login">Login</Link>
+        <div className={classes.right_nav}>
+          <Typography variant="h6">
+            <Link className={classes.link} to="/login">Login</Link>
           </Typography>
-          <Typography color="inherit" variant="h6">
-            <Link className="link" to="/chart">Chart</Link>
+          <Typography variant="h6">
+            <Link className={classes.link} to="/chart">Chart</Link>
           </Typography>
-          <Typography color="inherit" variant="h6">
-            <Link className="link" to="/upload">Upload</Link>
+          <Typography variant="h6">
+            <Link className={classes.link} to="/upload">Upload</Link>
           </Typography>
         </div>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default Header;
+export default withStyles(styles)(Header);

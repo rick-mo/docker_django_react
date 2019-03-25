@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
@@ -44,7 +43,7 @@ const styles = (theme: Theme) => ({
   }
 });
 
-const LoginPage: React.FC<WithStyles<typeof styles>> = props => {
+const LoginPage: React.FC<WithStyles<typeof styles>> = (props) => {
   const { classes } = props;
   const [ usernameState, setUsernameState ] = React.useState<string>('');
   const [ passwordState, setPasswordState ] = React.useState<string>('');
@@ -63,7 +62,6 @@ const LoginPage: React.FC<WithStyles<typeof styles>> = props => {
 
   return (
     <main className={classes.main}>
-      <CssBaseline />
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
