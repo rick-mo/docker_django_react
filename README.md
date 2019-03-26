@@ -1,8 +1,12 @@
 
 Backend : Django_rest_framework
+
 Frontend : React, TypeScript
+
 Database : PostgreSQL
+
 VirtualMachine : Docker
+
 Auth : JsonWebToken
 
 # reference
