@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core/';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import withStyles, { WithStyles, StyleRules } from '@material-ui/core/styles/withStyles';
+import createStyles from '@material-ui/core/styles/createStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): StyleRules => createStyles({
   link: {
     textDecoration: 'none',
     color: theme.palette.secondary.main,
@@ -21,7 +22,9 @@ const styles = (theme: Theme) => ({
   }
 });
 
-const Header: React.FC<WithStyles<typeof styles>> = (props) => {
+interface Props extends WithStyles<typeof styles>{};
+
+const Header: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
   return (

@@ -8,10 +8,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import withStyles, { WithStyles, StyleRules } from '@material-ui/core/styles/withStyles';
+import createStyles from '@material-ui/core/styles/createStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): StyleRules => createStyles({
   main: {
     width: 'auto',
     display: 'block',
@@ -26,7 +27,7 @@ const styles = (theme: Theme) => ({
   paper: {
     marginTop: theme.spacing.unit * 8,
     display: 'flex',
-    flexDirection: 'column' as 'column', //typescriptがstring型と推測してしまうため
+    flexDirection: 'column',
     alignItems: 'center',
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
   },
@@ -38,12 +39,14 @@ const styles = (theme: Theme) => ({
     width: '100%',
     marginTop: theme.spacing.unit,
   },
-  submit: {
+  button: {
     marginTop: theme.spacing.unit * 3,
   }
 });
 
-const LoginPage: React.FC<WithStyles<typeof styles>> = (props) => {
+interface Props extends WithStyles<typeof styles>{};
+
+const LoginPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
   const [ usernameState, setUsernameState ] = React.useState<string>('');
   const [ passwordState, setPasswordState ] = React.useState<string>('');
@@ -91,11 +94,11 @@ const LoginPage: React.FC<WithStyles<typeof styles>> = (props) => {
             />
           </FormControl>
           <Button 
-            type="submit" 
+            type="button" 
             fullWidth 
             variant="contained" 
             color="primary" 
-            className={classes.submit}
+            className={classes.button}
             onClick={() => handleLogin()}
           >
             Sign in

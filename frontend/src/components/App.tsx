@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import withStyles, { WithStyles, StyleRules } from '@material-ui/core/styles/withStyles';
+import createStyles from '@material-ui/core/styles/createStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import ChartPage from './chart/ChartPage';
 import UploadPage from './UploadPage';
@@ -10,7 +11,7 @@ import Header from './Header';
 import LoginPage from './LoginPage';
 import withRoot from '../withRoot';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): StyleRules => createStyles({
   content: {
     displey: 'flex',
     marginLeft: theme.spacing.unit * 3,
@@ -23,7 +24,9 @@ const styles = (theme: Theme) => ({
   },
 });
 
-const App: React.FC<WithStyles<typeof styles>> = (props) => {
+interface Props extends WithStyles<typeof styles>{};
+
+const App: React.FC<Props> = (props: Props) => {
   const { classes } = props;
   
   return (

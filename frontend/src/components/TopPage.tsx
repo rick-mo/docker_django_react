@@ -1,14 +1,17 @@
 import React from 'react';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import withStyles, { WithStyles, StyleRules } from '@material-ui/core/styles/withStyles';
+import createStyles from '@material-ui/core/styles/createStyles';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): StyleRules => createStyles({
   font: {
     color: theme.palette.primary.dark
   }
 });
 
-const TopPage: React.FC<WithStyles<typeof styles>> = (props) => {
+interface Props extends WithStyles<typeof styles>{};
+
+const TopPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
   return (
