@@ -1,7 +1,7 @@
 
 Backend : Django_rest_framework
 
-Frontend : React, TypeScript
+Frontend : React, TypeScript, Material-UI
 
 Database : PostgreSQL
 

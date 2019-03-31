@@ -1,9 +1,1 @@
-// <reference types="react-scripts" />
-declare namespace JSX {
-  interface Element { }
-  interface IntrinsicElements { 
-    div: any,
-    main: any,
-    form: any,
-  }
-}
+/// <reference types="react-scripts" />

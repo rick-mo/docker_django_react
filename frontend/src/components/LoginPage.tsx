@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
@@ -41,29 +42,34 @@ const styles = (theme: Theme): StyleRules => createStyles({
   },
   button: {
     marginTop: theme.spacing.unit * 3,
-  }
+  },
 });
 
-interface Props extends WithStyles<typeof styles>{};
+interface Props extends WithStyles<typeof styles>{
+  isLogged: boolean;
+  setLogged: (isLogged: boolean) => void;
+}
 
 const LoginPage: React.FC<Props> = (props: Props) => {
-  const { classes } = props;
-  const [ usernameState, setUsernameState ] = React.useState<string>('');
-  const [ passwordState, setPasswordState ] = React.useState<string>('');
+  const { classes, isLogged, setLogged } = props;
+  const [usernameState, setUsernameState] = React.useState<string>('');
+  const [passwordState, setPasswordState] = React.useState<string>('');
 
   // TODO バリデーション
   const handleLogin = () => {
     axios.post('http://localhost:8000/login/', {
-      username: usernameState, 
-      password: passwordState
-    }).then(resp => {
-      console.log(resp.data)
-    }).catch(err => {
-      console.log(err)
+      username: usernameState,
+      password: passwordState,
+    }).then((resp) => {
+      console.log(resp.data);
+      setLogged(true);
+      localStorage.setItem('jwt', resp.data);
+    }).catch((err) => {
+      console.log(err);
     });
   };
 
-  return (
+  return isLogged ? <Redirect to="/" /> : (
     <main className={classes.main}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -75,29 +81,29 @@ const LoginPage: React.FC<Props> = (props: Props) => {
         <form className={classes.form}>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="username">UserName</InputLabel>
-            <Input 
-              id="username" 
-              name="username" 
-              autoComplete="username" 
-              autoFocus 
-              onChange={(e) => setUsernameState(e.target.value)}
+            <Input
+              id="username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              onChange={e => setUsernameState(e.target.value)}
             />
           </FormControl>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="password">Password</InputLabel>
-            <Input 
-              name="password" 
-              type="password" 
-              id="password" 
-              autoComplete="current-password" 
-              onChange={(e) => setPasswordState(e.target.value)} 
+            <Input
+              name="password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={e => setPasswordState(e.target.value)}
             />
           </FormControl>
-          <Button 
-            type="button" 
-            fullWidth 
-            variant="contained" 
-            color="primary" 
+          <Button
+            type="button"
+            fullWidth
+            variant="contained"
+            color="primary"
             className={classes.button}
             onClick={() => handleLogin()}
           >
