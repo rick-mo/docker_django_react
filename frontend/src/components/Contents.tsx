@@ -8,6 +8,7 @@ import UploadPage from './UploadPage';
 import NotExistPage from './NotExistPage';
 import TopPage from './TopPage';
 import LoginPage from './LoginPage';
+import SampleChart from './SampleChart';
 import Auth from './Auth';
 
 const styles = (theme: Theme): StyleRules => createStyles({
@@ -34,6 +35,7 @@ const Contents: React.FC<Props> = (props: Props) => {
   return (
     <div className={classes.content}>
       <Switch>
+        <Route path="/rechart" exact component={SampleChart} />
         <Route path="/login" exact render={() => <LoginPage setLogged={setLogged} isLogged={isLogged} />} />
         <Auth isLogged={isLogged}>
           <Switch>

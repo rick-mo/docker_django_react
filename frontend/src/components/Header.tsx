@@ -67,7 +67,7 @@ const Header: React.FC<Props> = (props: Props) => {
                   anchorEl={anchorEl}
                   onClose={() => setAnchorEl(null)}
                 >
-                  <MenuItem>Profile</MenuItem>
+                  <MenuItem><Link to="/rechart">Rechart</Link></MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>
               </div>
@@ -77,6 +77,7 @@ const Header: React.FC<Props> = (props: Props) => {
             <div className={classes.right_nav}>
               <Typography variant="h6">
                 <Link className={classes.link} to="/login">Login</Link>
+                <Link to="/rechart">Rechart</Link>
               </Typography>
             </div>
           )

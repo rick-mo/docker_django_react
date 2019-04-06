@@ -24,6 +24,9 @@ module.exports = {
         "import"
     ],
     "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }]
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "ts", "tsx"] }]
+    },
+    "settings": {
+      "import/resolver": webpack
     }
 };
